@@ -1,0 +1,59 @@
+/* fake data not linked to any real organization */
+{
+  "help": "https://sample.nothing/ckan/api/3/action/help_show?name=group_show",
+  "success": true,
+  "result": {
+    "users": [
+      {
+        "email_hash": "ae215c8998f864768c449638b81d98ac",
+        "about": "",
+        "capacity": "admin",
+        "name": "admin",
+        "created": "2022-15-29T13:28:53.414951",
+        "openid": null,
+        "sysadmin": true,
+        "activity_streams_email_notifications": false,
+        "state": "active",
+        "number_of_edits": 1,
+        "display_name": "admin",
+        "fullname": "",
+        "id": "bf322540-76e6-48d0-529d-234573afd5c9",
+        "number_created_packages": 10
+      },
+      {
+        "email_hash": "ae215c8998f864768c449638b81d98ac",
+        "about": "",
+        "capacity": "admin",
+        "name": "admin1",
+        "created": "2022-15-29T13:28:53.414951",
+        "openid": null,
+        "sysadmin": true,
+        "activity_streams_email_notifications": false,
+        "state": "active",
+        "number_of_edits": 1,
+        "display_name": "admin1",
+        "fullname": "",
+        "id": "bf322540-76e6-48d0-529d-234573afd5c8",
+        "number_created_packages": 10
+      }
+    ],
+    "display_name": "Sample group",
+    "description": "",
+    "image_display_url": "https://sample.nothing/ckan/base/images/Economie.png",
+    "package_count": 0,
+    "created": "2022-15-29T13:28:53.414951",
+    "name": "sample",
+    "is_organization": false,
+    "state": "active",
+    "extras": [],
+    "image_url": "https://sample.nothing/ckan/base/images/Economie.png",
+    "groups": [],
+    "type": "group",
+    "title": "Sample",
+    "revision_id": "7617873f-90e5-4fd9-8742-1342f774d087",
+    "num_followers": 1,
+    "id": "d3f4879f-8628-44d1-8a6d-d250fbdac37f",
+    "tags": [],
+    "approval_status": "approved"
+  }
+}

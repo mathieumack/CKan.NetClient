@@ -1,0 +1,9 @@
+/* fake data not linked to any real organization */
+{
+  "help": "https://sample.nothing/ckan/api/3/action/help_show?name=organization_list",
+  "success": true,
+  "result": [
+    "organization-1",
+    "organization-2"
+  ]
+}

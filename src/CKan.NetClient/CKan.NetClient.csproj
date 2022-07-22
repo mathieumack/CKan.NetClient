@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<ProjectGuid>{8E99DD47-E2FE-4ABE-8481-3B3FE758C7E5}</ProjectGuid>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>MACK Mathieu</Authors>
+    <Copyright>Copyright (c) MACK Mathieu</Copyright>
+    <PackageProjectUrl>https://github.com/mathieumack/CKan.NetClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mathieumack/CKan.NetClient</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+	<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageId>$(AssemblyName).Unofficial</PackageId>
+	<Description>Unoficial package that provide a Client for http calls to a CKan organization</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>
