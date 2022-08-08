@@ -9,7 +9,7 @@ namespace CKan.NetClient.Clients
         protected string httpClientName;
         protected readonly IHttpClientFactory clientFactory;
 
-        public BaseHttpClient(CKanClient client, 
+        protected BaseHttpClient(CKanClient client, 
                                 IHttpClientFactory clientFactory)
         {
             this.client = client;
