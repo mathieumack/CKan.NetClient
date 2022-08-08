@@ -1,0 +1,9 @@
+/* fake data not linked to any real organization */ 
+{
+  "help": "https://sample.nothing/ckan/api/3/action/help_show?name=group_list",
+  "success": true,
+  "result": [
+    "group-1",
+    "group-2"
+  ]
+}

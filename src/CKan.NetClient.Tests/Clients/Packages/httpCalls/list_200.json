@@ -1,0 +1,9 @@
+{
+  "help": "https://sample.nothing/ckan/api/3/action/help_show?name=package_list",
+  "success": true,
+  "result": [
+    "package-1",
+    "package-2",
+    "package-3"
+  ]
+}
