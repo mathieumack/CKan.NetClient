@@ -14,7 +14,7 @@ namespace CKan.NetClient.Tests.Clients.Groups
         [TestMethod]
         public async Task NomicalCase()
         {
-            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients\\Groups\\httpCalls\\byName_200.json"));
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Groups/httpCalls/byName_200.json"));
 
             var groupsClient = GetCKanClient<IGroupsClient>();
             var groupDetails = await groupsClient.GetGroupByName("sample");

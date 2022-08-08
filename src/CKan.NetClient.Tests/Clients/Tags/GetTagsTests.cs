@@ -13,7 +13,7 @@ namespace CKan.NetClient.Tests.Clients.Tags
         [TestMethod]
         public async Task NomicalCase()
         {
-            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients\\Tags\\httpCalls\\list_200.json"));
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Tags/httpCalls/list_200.json"));
 
             var tagsClient = GetCKanClient<ITagsClient>();
             var tags = await tagsClient.GetTags();

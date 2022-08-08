@@ -13,7 +13,7 @@ namespace CKan.NetClient.Tests.Clients.Organizations
         [TestMethod]
         public async Task NomicalCase()
         {
-            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients\\Organizations\\httpCalls\\list_200.json"));
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Organizations/httpCalls/list_200.json"));
 
             var organizationsClient = GetCKanClient<IOrganizationsClient>();
             var organizations = await organizationsClient.GetOrganizations();

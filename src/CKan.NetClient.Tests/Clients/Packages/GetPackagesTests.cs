@@ -13,7 +13,7 @@ namespace CKan.NetClient.Tests.Clients.Package
         [TestMethod]
         public async Task NomicalCase()
         {
-            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients\\Packages\\httpCalls\\list_200.json"));
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Packages/httpCalls/list_200.json"));
 
             var packagesClient = GetCKanClient<IPackagesClient>();
             var packages = await packagesClient.GetPackages();
