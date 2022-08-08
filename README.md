@@ -12,7 +12,7 @@ This library let you to interact with a CKan server APIs with dedicated clients.
 
 ## Installation
 
-1. Add nuget package: 
+1. Add nuget package:  
 
 > Install-Package CKan.NetClient.Unoficial
 
