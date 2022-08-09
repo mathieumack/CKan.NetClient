@@ -29,6 +29,7 @@ jobs:
         echo "GitHub SHA: $GITHUB_SHA"
         echo "Branch name ref : ${{ github.ref }}"
         echo "Branch name head ref : ${{ github.head_ref }}"
+        echo "Force publish ? ${{ github.event.inputs.forcePublish }}"
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
