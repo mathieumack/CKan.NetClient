@@ -1,6 +1,13 @@
 name: .NET
 
 on:
+  workflow_dispatch:
+    inputs:
+      forcePublish:
+        description: 'Force publish ?'     
+        required: true
+        type: boolean
+        default: false
   push:
     branches: [ main ]
   pull_request:
@@ -13,6 +20,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Show default environment variables
+      run: |
+        echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
+        echo "The id of this action is: $GITHUB_ACTION"   # reference the default environment variables
+        echo "The run id is: $GITHUB_RUN_ID"
+        echo "The GitHub Actor's username is: $GITHUB_ACTOR"
+        echo "GitHub SHA: $GITHUB_SHA"
+        echo "Branch name ref : ${{ github.ref }}"
+        echo "Branch name head ref : ${{ github.head_ref }}"
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
@@ -55,6 +71,6 @@ jobs:
       working-directory: src
     # Publish a new version only for new features :
     - name: Push Package to NuGet.org
-      if: startswith(github.ref,'refs/heads/feature') || startswith(github.head_ref,'refs/heads/feature')
+      if: github.event.inputs.forcePublish == 1 || startsWith(github.ref,'refs/heads/feature') || startsWith(github.head_ref,'feature')
       run: dotnet nuget push **.nupkg -k ${{ secrets.NUGETAPIKEY }} -s https://api.nuget.org/v3/index.json
       working-directory: src
