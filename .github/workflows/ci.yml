@@ -62,6 +62,6 @@ jobs:
       working-directory: src
     # Publish a new version only for new features :
     - name: Push Package to NuGet.org
-      if: github.event.inputs.forcePublish == 1 || startsWith(github.ref,'refs/heads/feature') || startsWith(github.head_ref,'refs/heads/feature')
+      if: github.event.inputs.forcePublish == 1 || startsWith(github.ref,'refs/heads/feature') || startsWith(github.head_ref,'feature')
       run: dotnet nuget push **.nupkg -k ${{ secrets.NUGETAPIKEY }} -s https://api.nuget.org/v3/index.json
       working-directory: src
