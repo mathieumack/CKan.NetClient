@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System.Collections.Generic;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace CKan.NetClient.Clients
@@ -23,16 +24,25 @@ namespace CKan.NetClient.Clients
 
         protected async Task<HttpContent> GetContent(string uri)
         {
+            return await GetContent(uri, null);
+        }
+
+        protected async Task<HttpContent> GetContent(string uri, List<string> queryParams)
+        {
             HttpClient httpclient;
-            
-            if(string.IsNullOrWhiteSpace(httpClientName))
+
+            if (string.IsNullOrWhiteSpace(httpClientName))
                 httpclient = clientFactory.CreateClient();
             else
                 httpclient = clientFactory.CreateClient(httpClientName);
 
             // TODO : Add Encoding management on headers
 
-            var response = await httpclient.GetAsync($"{client.BaseUri}/{uri}");
+            var finalUri = uri;
+            if(queryParams != null && queryParams.Count > 0)
+                finalUri += "?" + string.Join("&", queryParams);
+
+            var response = await httpclient.GetAsync($"{client.BaseUri}/{finalUri}");
 
             // TODO : Define Error management in HTTP calls
             response.EnsureSuccessStatusCode();

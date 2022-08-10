@@ -20,5 +20,16 @@ namespace CKan.NetClient.Tests.Clients.Groups
 
             groups.Should().HaveCount(2);
         }
+
+        [TestMethod]
+        public async Task PagingCase()
+        {
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Groups/httpCalls/list_200.json"));
+
+            var groupsClient = GetCKanClient<IGroupsClient>();
+            var groups = await groupsClient.GetGroups(2, 1);
+
+            groups.Should().HaveCount(2);
+        }
     }
 }

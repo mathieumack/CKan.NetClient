@@ -20,5 +20,16 @@ namespace CKan.NetClient.Tests.Clients.Tags
 
             tags.Should().HaveCount(2);
         }
+
+        [TestMethod]
+        public async Task PagingCase()
+        {
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Tags/httpCalls/list_200.json"));
+
+            var tagsClient = GetCKanClient<ITagsClient>();
+            var tags = await tagsClient.GetTags(2, 1);
+
+            tags.Should().HaveCount(2);
+        }
     }
 }

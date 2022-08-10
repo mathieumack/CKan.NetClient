@@ -23,9 +23,17 @@ namespace CKan.NetClient.Clients.Groups
         }
 
         /// <inheritdoc/>
-        public async Task<List<string>> GetGroups()
+        public async Task<List<string>> GetGroups(int? limit = null, int? offset = null)
         {
-            var content = await GetContent("api/3/action/group_list");
+            var queryParams = new List<string>();
+
+            // Paging configuration :
+            if (limit.HasValue)
+                queryParams.Add($"limit={limit.Value}");
+            if (offset.HasValue)
+                queryParams.Add($"offset={offset.Value}");
+
+            var content = await GetContent("api/3/action/group_list", queryParams);
             var responsecontent = await content.ReadAsAsync<GroupListResult>();
             return responsecontent.Result;
         }

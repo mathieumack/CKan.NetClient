@@ -14,9 +14,17 @@ namespace CKan.NetClient.Clients.Tags
         }
 
         /// <inheritdoc/>
-        public async Task<List<string>> GetTags()
+        public async Task<List<string>> GetTags(int? limit = null, int? offset = null)
         {
-            var content = await GetContent("api/3/action/tag_list");
+            var queryParams = new List<string>();
+
+            // Paging configuration :
+            if (limit.HasValue)
+                queryParams.Add($"limit={limit.Value}");
+            if (offset.HasValue)
+                queryParams.Add($"offset={offset.Value}");
+
+            var content = await GetContent("api/3/action/tag_list", queryParams);
             var responsecontent = await content.ReadAsAsync<TagListResult>();
             return responsecontent.Result;
         }

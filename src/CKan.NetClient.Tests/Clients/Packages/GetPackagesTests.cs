@@ -20,5 +20,16 @@ namespace CKan.NetClient.Tests.Clients.Package
 
             packages.Should().HaveCount(3);
         }
+
+        [TestMethod]
+        public async Task PagingCase()
+        {
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Packages/httpCalls/list_200.json"));
+
+            var packagesClient = GetCKanClient<IPackagesClient>();
+            var packages = await packagesClient.GetPackages(2, 1);
+
+            packages.Should().HaveCount(3);
+        }
     }
 }
