@@ -6,7 +6,7 @@ This library let you to interact with a CKan server APIs with dedicated clients.
 # IC
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mathieumack_CKan.NetClient&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=mathieumack_CKan.NetClient)
 [![.NET](https://github.com/mathieumack/CKan.NetClient/actions/workflows/ci.yml/badge.svg)](https://github.com/mathieumack/CKan.NetClient/actions/workflows/ci.yml)
-[![NuGet package](https://buildstats.info/nuget/CKan.NetClient.Unoficial?includePreReleases=true)](https://nuget.org/packages/CKan.NetClient.Unoficial)
+[![NuGet package](https://buildstats.info/nuget/CKan.NetClient.Unofficial?includePreReleases=true)](https://nuget.org/packages/CKan.NetClient.Unofficial)
 
 # Onboarding Instructions 
 
