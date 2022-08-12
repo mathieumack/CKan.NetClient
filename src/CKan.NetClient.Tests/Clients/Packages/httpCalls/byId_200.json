@@ -1,0 +1,113 @@
+{
+  "help": "https://sample.nothing/ckan/api/3/action/help_show?name=package_show",
+  "success": true,
+  "result": {
+    "owner_org": "e813ebdc-1111-1111-1111-4ceae4e02824",
+    "maintainer": "",
+    "relationships_as_object": [],
+    "private": false,
+    "maintainer_email": "",
+    "id": "42a155db-1111-1111-1111-924fc3ed50af",
+    "metadata_created": "2020-11-13T15:05:33.057898",
+    "metadata_modified": "2022-07-01T12:58:41.084579",
+    "author": "Mathieu MACK",
+    "author_email": "myname@sample.nothing",
+    "state": "active",
+    "version": "",
+    "creator_user_id": "ec4c0d71-1111-1111-1111-3ca885571779",
+    "type": "dataset",
+    "resources": [
+      {
+        "cache_last_updated": null,
+        "package_id": "42a155db-1111-1111-1111-924fc3ed50af",
+        "webstore_last_updated": null,
+        "datastore_active": false,
+        "id": "b57c799f-1111-1111-1111-627fd3636558",
+        "size": null,
+        "state": "active",
+        "hash": "",
+        "description": "",
+        "format": "CSV",
+        "last_modified": null,
+        "url_type": null,
+        "mimetype": null,
+        "cache_url": null,
+        "name": "resource-1",
+        "created": "2020-11-13T16:07:35.802661",
+        "url": "https://sample.nothing/opendata/sample.csv",
+        "webstore_url": null,
+        "mimetype_inner": null,
+        "position": 0,
+        "revision_id": "7429d028-6fe0-4542-a18e-3966847b125f",
+        "resource_type": null
+      },
+      {
+        "cache_last_updated": null,
+        "package_id": "42a155db-1111-1111-1111-924fc3ed50af",
+        "webstore_last_updated": null,
+        "datastore_active": false,
+        "id": "ee7f1a95-1111-1111-1111-4d5f853a84ed",
+        "size": null,
+        "state": "active",
+        "hash": "",
+        "description": "",
+        "format": "CSV",
+        "last_modified": null,
+        "url_type": null,
+        "mimetype": null,
+        "cache_url": null,
+        "name": "resource-2",
+        "created": "2020-11-13T16:09:04.989215",
+        "url": "https://sample.nothing/opendata/sample.csv",
+        "webstore_url": null,
+        "mimetype_inner": null,
+        "position": 1,
+        "revision_id": "b4901fa0-3834-4a37-8a20-c8afb7c7ba22",
+        "resource_type": null
+      }
+    ],
+    "tags": [
+      {
+        "vocabulary_id": null,
+        "state": "active",
+        "display_name": "tag 1",
+        "id": "644c8423-1111-1111-1111-4d108e1bc0c4",
+        "name": "tag-1"
+      }
+    ],
+    "groups": [
+      {
+        "display_name": "Group 1",
+        "description": "",
+        "image_display_url": "https://sample.nothing/ckan/base/images/sample.png",
+        "title": "group 1",
+        "id": "6a1fe944-1111-1111-1111-c21be3e5aa8a",
+        "name": "group-1"
+      }
+    ],
+    "license_id": "ODbL-1.0",
+    "relationships_as_subject": [],
+    "organization": {
+      "description": "Organization 1 description",
+      "created": "2020-01-23T07:50:08.338861",
+      "title": "Organization 1",
+      "name": "organization-1",
+      "is_organization": true,
+      "state": "active",
+      "image_url": "sample.png",
+      "revision_id": "5172e0f2-3088-4713-a8e1-5b06d2ba1368",
+      "type": "organization",
+      "id": "e813ebdc-1111-1111-1111-4ceae4e02824",
+      "approval_status": "approved"
+    },
+    "name": "Resource 1",
+    "isopen": true,
+    "url": "",
+    "notes": "Resource 1 note",
+    "license_title": "Open Data Commons Open Database License 1.0",
+    "extras": [],
+    "license_url": "https://opendefinition.org/licenses/odc-odbl",
+    "title": "Resource 1",
+    "revision_id": "3d16ab90-ce30-4029-9a50-183c301b1966"
+  }
+}

@@ -14,9 +14,17 @@ namespace CKan.NetClient.Clients.Organization
         }
 
         /// <inheritdoc/>
-        public async Task<List<string>> GetOrganizations()
+        public async Task<List<string>> GetOrganizations(int? limit = null, int? offset = null)
         {
-            var content = await GetContent("api/3/action/organization_list");
+            var queryParams = new List<string>();
+
+            // Paging configuration :
+            if (limit.HasValue)
+                queryParams.Add($"limit={limit.Value}");
+            if (offset.HasValue)
+                queryParams.Add($"offset={offset.Value}");
+
+            var content = await GetContent("api/3/action/organization_list", queryParams);
             var responsecontent = await content.ReadAsAsync<PackageListResult>();
             return responsecontent.Result;
         }

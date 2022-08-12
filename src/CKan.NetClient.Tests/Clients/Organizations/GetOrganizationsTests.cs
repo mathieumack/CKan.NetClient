@@ -20,5 +20,16 @@ namespace CKan.NetClient.Tests.Clients.Organizations
 
             organizations.Should().HaveCount(2);
         }
+
+        [TestMethod]
+        public async Task PagingCase()
+        {
+            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Organizations/httpCalls/list_200.json"));
+
+            var organizationsClient = GetCKanClient<IOrganizationsClient>();
+            var organizations = await organizationsClient.GetOrganizations(2, 1);
+
+            organizations.Should().HaveCount(2);
+        }
     }
 }

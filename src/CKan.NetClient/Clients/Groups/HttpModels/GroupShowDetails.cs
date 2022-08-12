@@ -6,7 +6,7 @@ namespace CKan.NetClient.Clients.Groups.HttpModels
     public class GroupShowDetails
     {
         [JsonProperty("id")]
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("revision_id")]
         public Guid RevisionId { get; set; }
