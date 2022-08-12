@@ -1,5 +1,7 @@
 ﻿using CKan.NetClient.Abstractions;
+using CKan.NetClient.Clients.Packages.HttpModels;
 using CKan.NetClient.Clients.Packages.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -11,6 +13,17 @@ namespace CKan.NetClient.Clients.Packages
         public PackagesClient(CKanClient client, IHttpClientFactory clientFactory)
             : base(client, clientFactory)
         {
+        }
+
+        /// <inheritdoc/>
+        public async Task<PackageShowDetails> GetPackageById(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                throw new ArgumentNullException(nameof(id));
+
+            var content = await GetContent($"api/3/action/package_show?id={id}");
+            var responsecontent = await content.ReadAsAsync<PackageShowResult>();
+            return responsecontent.Result;
         }
 
         /// <inheritdoc/>

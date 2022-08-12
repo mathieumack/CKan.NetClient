@@ -1,6 +1,7 @@
 ﻿using CKan.NetClient.Abstractions;
 using CKan.NetClient.Clients.Groups.HttpModels;
 using CKan.NetClient.Clients.Groups.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -15,9 +16,12 @@ namespace CKan.NetClient.Clients.Groups
         }
 
         /// <inheritdoc/>
-        public async Task<GroupShowDetails> GetGroupByName(string name)
+        public async Task<GroupShowDetails> GetGroupById(string id)
         {
-            var content = await GetContent($"api/3/action/group_show?id={name}");
+            if (string.IsNullOrWhiteSpace(id))
+                throw new ArgumentNullException(nameof(id));
+
+            var content = await GetContent($"api/3/action/group_show?id={id}");
             var responsecontent = await content.ReadAsAsync<GroupShowResult>();
             return responsecontent.Result;
         }
