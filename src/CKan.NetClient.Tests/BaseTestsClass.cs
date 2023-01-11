@@ -31,7 +31,7 @@ namespace CKan.NetClient.Tests
         /// </summary>
         protected void LoadServices(HttpStatusCode statusCode, string httpSimulationContent)
         {
-            serviceProvider = ServiceCollectionInitializer("https://data.metropolegrenoble.fr/ckan", statusCode, httpSimulationContent);
+            serviceProvider = ServiceCollectionInitializer("https://sample.nothing/", statusCode, httpSimulationContent);
         }
 
         protected T GetCKanClient<T>()
