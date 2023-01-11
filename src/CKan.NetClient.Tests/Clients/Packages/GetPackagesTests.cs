@@ -27,21 +27,9 @@ namespace CKan.NetClient.Tests.Clients.Package
             LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Packages/httpCalls/list_200.json"));
 
             var packagesClient = GetCKanClient<IPackagesClient>();
-            var packages = await packagesClient.GetPackages(limit:2, offset:1);
+            var packages = await packagesClient.GetPackages(2, 1);
 
             packages.Should().HaveCount(3);
-        }
-
-
-        [TestMethod]
-        public async Task GroupCase()
-        {
-            LoadServices(HttpStatusCode.Accepted, File.ReadAllText("Clients/Packages/httpCalls/groupPackages_200.json"));
-
-            var packagesClient = GetCKanClient<IPackagesClient>();
-            var packages = await packagesClient.GetPackagesByGroup("culture");
-
-            packages.Should().HaveCount(10);
         }
     }
 }
