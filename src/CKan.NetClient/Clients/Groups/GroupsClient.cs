@@ -1,6 +1,6 @@
 ﻿using CKan.NetClient.Abstractions;
 using CKan.NetClient.Clients.Groups.HttpModels;
-using CKan.NetClient.Clients.Groups.Models;
+using CKan.NetClient.Clients.HttpModels;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -22,7 +22,7 @@ namespace CKan.NetClient.Clients.Groups
                 throw new ArgumentNullException(nameof(id));
 
             var content = await GetContent($"api/3/action/group_show?id={id}");
-            var responsecontent = await content.ReadAsAsync<GroupShowResult>();
+            var responsecontent = await content.ReadAsAsync<HttpCallResult<GroupShowDetails>>();
             return responsecontent.Result;
         }
 
@@ -38,7 +38,7 @@ namespace CKan.NetClient.Clients.Groups
                 queryParams.Add($"offset={offset.Value}");
 
             var content = await GetContent("api/3/action/group_list", queryParams);
-            var responsecontent = await content.ReadAsAsync<GroupListResult>();
+            var responsecontent = await content.ReadAsAsync<HttpCallListResult<string>>();
             return responsecontent.Result;
         }
     }

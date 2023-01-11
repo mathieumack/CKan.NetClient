@@ -11,7 +11,7 @@ namespace CKan.NetClient.Clients.Packages.HttpModels
         public string Id { get; set; }
 
         [JsonProperty("revision_id")]
-        public Guid RevisionId { get; set; }
+        public string RevisionId { get; set; }
 
         [JsonProperty("title")]
         public string Title { get; set; }

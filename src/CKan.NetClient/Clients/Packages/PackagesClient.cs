@@ -1,6 +1,6 @@
 ﻿using CKan.NetClient.Abstractions;
+using CKan.NetClient.Clients.HttpModels;
 using CKan.NetClient.Clients.Packages.HttpModels;
-using CKan.NetClient.Clients.Packages.Models;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -14,7 +14,7 @@ namespace CKan.NetClient.Clients.Packages
             : base(client, clientFactory)
         {
         }
-
+        
         /// <inheritdoc/>
         public async Task<PackageShowDetails> GetPackageById(string id)
         {
@@ -22,7 +22,25 @@ namespace CKan.NetClient.Clients.Packages
                 throw new ArgumentNullException(nameof(id));
 
             var content = await GetContent($"api/3/action/package_show?id={id}");
-            var responsecontent = await content.ReadAsAsync<PackageShowResult>();
+            var responsecontent = await content.ReadAsAsync<HttpCallResult<PackageShowDetails>>();
+            return responsecontent.Result;
+        }
+
+        /// <inheritdoc/>
+        public async Task<List<PackageShowDetails>> GetPackagesByGroup(string id, int? limit = null, int? offset = null)
+        {
+            var queryParams = new List<string>();
+
+            // Paging configuration :
+            queryParams.Add($"id={id}");
+            
+            if (limit.HasValue)
+                queryParams.Add($"limit={limit.Value}");
+            if (offset.HasValue)
+                queryParams.Add($"offset={offset.Value}");
+
+            var content = await GetContent("api/3/action/group_package_show", queryParams);
+            var responsecontent = await content.ReadAsAsync<HttpCallListResult<PackageShowDetails>>();
             return responsecontent.Result;
         }
 
@@ -38,7 +56,7 @@ namespace CKan.NetClient.Clients.Packages
                 queryParams.Add($"offset={offset.Value}");
 
             var content = await GetContent("api/3/action/package_list", queryParams);
-            var responsecontent = await content.ReadAsAsync<PackageListResult>();
+            var responsecontent = await content.ReadAsAsync<HttpCallListResult<string>>();
             return responsecontent.Result;
         }
     }

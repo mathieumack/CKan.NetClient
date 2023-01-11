@@ -1,5 +1,5 @@
 ﻿using CKan.NetClient.Abstractions;
-using CKan.NetClient.Clients.Tags.Models;
+using CKan.NetClient.Clients.HttpModels;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -25,7 +25,7 @@ namespace CKan.NetClient.Clients.Tags
                 queryParams.Add($"offset={offset.Value}");
 
             var content = await GetContent("api/3/action/tag_list", queryParams);
-            var responsecontent = await content.ReadAsAsync<TagListResult>();
+            var responsecontent = await content.ReadAsAsync<HttpCallListResult<string>>();
             return responsecontent.Result;
         }
     }

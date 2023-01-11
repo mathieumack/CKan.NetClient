@@ -1,13 +1,13 @@
 ﻿using Newtonsoft.Json;
 
-namespace CKan.NetClient.Clients.Packages.HttpModels
+namespace CKan.NetClient.Clients.HttpModels
 {
-    public class PackageShowResult
+    public class HttpCallResult<T>
     {
         [JsonProperty("success")]
         public bool Success { get; set; }
 
         [JsonProperty("result")]
-        public PackageShowDetails Result { get; set; }
+        public T Result { get; set; }
     }
 }

@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using CKan.NetClient.Clients.HttpModels;
 
 namespace CKan.NetClient.Clients.Organizations.Models
 {
-    public class OrganizationListResult
+    public class OrganizationListResult : HttpCallListResult<string>
     {
-        public bool Success { get; set; }
-
-        public List<string> Result { get; set; }
     }
 }

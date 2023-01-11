@@ -36,6 +36,9 @@
     <None Update="Clients\Packages\httpCalls\byId_200.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Clients\Packages\httpCalls\groupPackages_200.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Clients\Packages\httpCalls\list_200.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
