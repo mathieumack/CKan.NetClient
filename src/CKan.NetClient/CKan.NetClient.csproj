@@ -2,7 +2,7 @@
 
   <PropertyGroup>
 	<ProjectGuid>{8E99DD47-E2FE-4ABE-8481-3B3FE758C7E5}</ProjectGuid>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>MACK Mathieu</Authors>
     <Copyright>Copyright (c) MACK Mathieu</Copyright>
@@ -13,6 +13,7 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageId>$(AssemblyName).Unofficial</PackageId>
 	<Description>Unofficial package that provide a Client for http calls to a CKan organization</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
