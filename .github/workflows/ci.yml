@@ -14,12 +14,32 @@ on:
     branches: [ main ]
 
 jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.x
+
+    - run: dotnet install -g docfx
+    - run: docfx init -o docs -q
+    - run: .github/workflows/docs/templatedocfx.json docs/docfx.json
+    - run: docfx docs/docfx.json
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: docs/_site
+        
   build:
     name: "CI : Build, Test and publish"
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Show default environment variables
       run: |
         echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
@@ -31,9 +51,9 @@ jobs:
         echo "Branch name head ref : ${{ github.head_ref }}"
         echo "Force publish ? ${{ github.event.inputs.forcePublish }}"
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 7.0.x
     - name: Restore dependencies
       run: dotnet restore
       working-directory: src
